@@ -1,0 +1,30 @@
+---
+spring:
+  datasource:
+    # Local: jdbc:mysql://localhost/bsts_new?user=root&password=
+    url: ${MYSQL_URI}
+    # Local: root
+#    username: ${MYSQL_USER}
+    # Local: (empty)
+#    password: ${MYSQL_PASSWORD}
+  jpa:
+    hibernate:
+      naming:
+        implicit-strategy: component-path
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: validate
+  data:
+    # REST
+    rest:
+      basePath: /api
+
+---
+spring:
+  profiles: development
+logging:
+  level:
+    org.crayonpedia: DEBUG
+security:
+  user:
+    name: admin
+    password: admin
